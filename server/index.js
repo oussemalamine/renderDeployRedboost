@@ -8,8 +8,8 @@ const db = process.env.DATABASE_URI;
 const secret = process.env.SECRET;
 const PORT = process.env.PORT || 3000;
 const app = express();
-//const csurf = require("csurf");
-//const csrfProtection = csurf({ cookie: true });
+const csurf = require("csurf");
+const csrfProtection = csurf({ cookie: true });
 const signupRoute = require("./routes/api/signup");
 const loginRoute = require("./routes/api/login");
 const saveExcelDataRoute = require("./routes/api/saveExcelData");
@@ -27,7 +27,7 @@ app.use(
   })
 );
 
-//app.use(csrfProtection); // Csurf is protection middleware for csrf attacks
+app.use(csrfProtection); // Csurf is protection middleware for csrf attacks
 
 app.use(
   session({
