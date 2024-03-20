@@ -36,7 +36,7 @@ app.use(
     saveUninitialized: false, // Don't create session until something stored
     cookie: {
       secure: true, // Requires https
-      httpOnly: true, // Prevents client side JS from reading the cookie
+      httpOnly: false, // Prevents client side JS from reading the cookie
       maxAge: 1000 * 60 * 60 * 24, // Cookie will live for 24H
     },
   })
